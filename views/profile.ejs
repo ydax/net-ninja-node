@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to <%= person %>'s Profile</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        body {
+            background: indigo;
+            letter-spacing 2px;
+        }
+    </style>
+</head>
+<body>
+    <%- include ('partials/nav'); %>
+    <div class="container">
+        <h2 class="white-text center">Welcome to <%= person %>'s Profile Page</h2>
+        <h4 class="white-text">Basic Information</h4>
+        <!-- Syntax for outputting data from props. -->
+        <p class="white-text flow-text"><strong>Age: <%= data.age %></strong></p>
+        <p class="white-text flow-text"><strong>Job: <%= data.job %></strong></p>
+        <h4 class="white-text">Hobbies</h4>
+        <!-- Syntax for creating JS code -->
+        <ul>
+            <!-- Must close the EJS tag to code in HTML again-->
+            <% data.hobbies.forEach(function(hobby) { %>
+
+                <!-- Now coding in HTML again -->
+                <li class="white-text"><%= hobby %></li>
+            <!-- Must signal JavaScript code again -->
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
