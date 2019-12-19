@@ -17,6 +17,13 @@ app.set('view engine', 'ejs');
  */
 app.listen(3000);
 
+/** Using middleware to add logic to incoming requests.
+@param {path} string Attach a route to the middleware.
+@param {express.static()} method Fires when middleware is called.
+    @param {path} string Maps incoming requests to a folder.
+ */
+app.use('/assets', express.static('assets'));
+
 /** Respond to GET requests
 @param {route} string
 @param {callback} function What to do with the request. Often uses the send() method.
@@ -32,7 +39,11 @@ app.listen(3000);
 */
  app.get('/contact', (request, response) => {     
     //  response.sendFile(`${__dirname}/contact.html`);
-    response.render('contact');
+
+    /** Access query string data.
+    @property {query} on request Collects and parses data from query strings.
+     */
+    response.render('contact', { qs: request.query });
  });
 
 // Dummy data for use in the following code block.
