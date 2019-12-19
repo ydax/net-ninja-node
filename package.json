@@ -1,0 +1,23 @@
+{
+  "name": "shaun-intro-course",
+  "version": "1.0.0",
+  "description": "a little test app",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ydax/net-ninja-node.git"
+  },
+  "author": "Dax Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ydax/net-ninja-node/issues"
+  },
+  "homepage": "https://github.com/ydax/net-ninja-node#readme"
+}
