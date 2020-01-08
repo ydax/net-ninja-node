@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Us</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/assets/styles.css" type="text/css">
+</head>
+<body>
+    <%- include ('partials/nav'); %>
+    <div class="container">
+        <h2 class="white-text center">Thanks for getting in touch!</h2>
+        <p class="flow-text white-text">You contacted <%= data.who %> from the <%= data.department %> department. We will reply to you at <%= data.email %>.</p>
+    </div>
+</body>
+</html>

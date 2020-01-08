@@ -1,9 +1,21 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 
 /** Setting up an express app
     @return All of express' methods.
  */
 const app = express();
+
+// Parses POST data via the body-parser package.
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+// Sets up app.post route handler.
+app.post('/contact', urlencodedParser, function (request, response) {
+   // Log the data POSTed by the contact form.
+   console.log(request.body);
+   // Renders a "success page" on form submit.
+   response.render('contact-success', { data: request.body });
+});
 
 /** Set the templating engine Express expects. Note that, by default, Express will look for these files in a folder called views.
 @method set(setting, selection) Calibrates an Express setting.
@@ -34,6 +46,19 @@ app.use('/assets', express.static('assets'));
  });
 
 /** Leverage templating engines to respond with HTML and other files.
+@method sendFile({path}) Responds to a GET request with a file. Automatically identifies that it's an HTML file and creates headers.
+    @param {path} string
+*/
+ app.get('/contact', (request, response) => {     
+    //  response.sendFile(`${__dirname}/contact.html`);
+
+    /** Access query string data.
+    @property {query} on request Collects and parses data from query strings.
+     */
+    response.render('contact', { qs: request.query });
+ });
+
+ /** Use body-parser middleware to handle POST requests.
 @method sendFile({path}) Responds to a GET request with a file. Automatically identifies that it's an HTML file and creates headers.
     @param {path} string
 */
